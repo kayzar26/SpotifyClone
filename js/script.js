@@ -79,7 +79,7 @@ async function displayAlbums() {
     let array = Array.from(anchors)
         for (let index = 0; index < array.length; index++) {
             const e = array[index];
-        if (e.href.includes("/songs/")) {
+        if (e.href.includes("/songs/") && !e.href.includes(".htaccess")) {
             let folder = e.href.split("/").slice(-1)[0];
             // get the metadata of the folder
             let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
@@ -175,6 +175,9 @@ async function main() {
     // add an event to volume
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
         currentSong.volume = parseInt(e.target.value) / 100
+        if(currentSong.volume > 0) {
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("mute.svg", "volume.svg")
+        }
     })
 
     // add event listner to mute the track

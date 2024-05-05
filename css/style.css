@@ -136,7 +136,7 @@ body {
     border-radius: 50%;
     background-color: #1fdf64;
     position: absolute;
-    top: 160px;
+    bottom: 118px;
     right: 20px;
     opacity: var(--a);
     transition: all .7s ease-out;
@@ -184,6 +184,9 @@ body {
     padding: 12px;
     width: 70vw;
     min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .songbuttons {
@@ -246,11 +249,11 @@ body {
 
 .seekbar {
     height: 5px;
-    width: 98%;
+    width: 70%;
     background: black;
     border-radius: 10px;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     margin: 6px;
     cursor: pointer;
 }
@@ -309,11 +312,14 @@ body {
     .left {
         background-color: black;
         position: absolute;
-        left: -120%;
+        left: -133%;
         transition: all .3s;
         z-index: 1;
         width: 370px;
         padding: 0;
+        height: 95vh;
+        position: fixed;
+        top: 0;
     }
 
     .songinfo, .songtime {
@@ -332,12 +338,17 @@ body {
         margin: 0;
     }
 
+    .play {
+        bottom: 98px;
+    }
+
     .playbar {
         width: calc(100vw - 60px);
     }
 
     .seekbar {
-        width: calc(100vw - 120px);
+        /* width: calc(100vw - 120px); */
+        width: 70%;
     }
 
     .hamburger{
@@ -353,7 +364,9 @@ body {
     .cardContainer {
         margin: 0;
         justify-content: center;
-        max-height: 50vh;
+        max-height: unset;
+        overflow-y: unset;
+        margin-bottom: 35vh;
     }
 
     .close {
@@ -365,10 +378,54 @@ body {
         gap: 23px;
         align-items: center;
     }
+
+    .playbar {
+        right: 25px;
+    }
+
 }
 
 @media (max-width: 500px) {
     .card {
-        width: 350px;
+        width: 100%;
     }
+
+    .header {
+        padding: 7px;
+    }
+
+    .header > * {
+        padding: 2px;
+    }
+
+    .buttons {
+        display: flex;
+    }
+
+    .buttons>* {
+        margin: 0 6px;
+
+    }
+
+    .spotifyPlaylist h1 {
+        padding: 4px;
+    }
+    
+    .playbar {
+        right: 25px;
+    }
+
+    .library {
+        height: 82vh;
+    }
+
+    .left {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+    }
+
+
+
+
 }
